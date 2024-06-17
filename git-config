@@ -1,0 +1,13 @@
+# aritra2021
+
+Host github.com
+HostName github.com
+User aritra2021
+IdentityFile /Users/aritra.mondal/.ssh/aritra2021-GitHub
+
+# aritra1999
+
+Host github.com-personal
+HostName github.com
+User aritra1999
+IdentityFile /Users/aritra.mondal/.ssh/aritra1999-GitHub

@@ -1,0 +1,102 @@
+{
+	// VSCode Global settings
+	"window.commandCenter": false,
+	"window.nativeTabs": false, // disable open files in the top bar of vscode
+	"window.zoomLevel": -1,
+
+	"terminal.explorerKind": "external",
+	"terminal.integrated.fontSize": 16,
+
+	"explorer.confirmDragAndDrop": false,
+	"explorer.autoReveal": false,
+	"explorer.confirmDelete": false,
+
+	"editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+	"editor.fontLigatures": false,
+	"editor.fontSize": 14,
+	"editor.fontWeight": "600",
+	"editor.suggestSelection": "first",
+	"editor.minimap.enabled": false,
+	"editor.inlineSuggest.enabled": true,
+	"editor.cursorBlinking": "solid",
+	"editor.cursorStyle": "block",
+	"editor.lineHeight": 1.5,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.stickyScroll.enabled": true,
+	"editor.wordWrap": "on",
+
+	"workbench.editor.showTabs": "none",
+	"workbench.startupEditor": "none",
+	"workbench.colorTheme": "Material Dark Theme",
+	"workbench.iconTheme": "bearded-icons",
+	"workbench.activityBar.location": "top",
+	"workbench.editor.enablePreview": false,
+	"workbench.sideBar.location": "right",
+	"workbench.colorCustomizations": {
+		"editorError.foreground": "#ff0000",
+		"editorWarning.foreground": "#fff700",
+		"editorGutter.addedBackground": "#A0A0A0",
+		"editorGutter.deletedBackground": "#A0A0A0",
+		"editorGutter.modifiedBackground": "#A0A0A0"
+	},
+
+	"extensions.ignoreRecommendations": true,
+	"extensions.autoUpdate": true,
+
+	"debug.javascript.autoAttachFilter": "disabled",
+	"security.workspace.trust.untrustedFiles": "open",
+	"prettier.useTabs": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/*.code-search": true,
+		"**/dist/*": true
+	},
+
+	// Git settings
+	"git.autofetch": true,
+	"git.openRepositoryInParentFolders": "never",
+	"git.confirmSync": false,
+	"gitlens.codeLens.authors.enabled": false,
+	"gitlens.codeLens.recentChange.enabled": false,
+	"gitlens.currentLine.enabled": true,
+	"github.copilot.enable": {
+		"*": true,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false
+	},
+
+	// Language specific settings
+	"svelte.enable-ts-plugin": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"go.toolsManagement.autoUpdate": true,
+	"cSpell.userWords": ["Instana"],
+
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"[python]": {
+		"editor.formatOnType": true
+	},
+	"[go]": {
+		"editor.defaultFormatter": "golang.go"
+	},
+	"gitlens.launchpad.indicator.enabled": false
+}
