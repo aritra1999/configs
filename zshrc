@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/I529207/.zsh/completions:"* ]]; then export FPATH="/Users/I529207/.zsh/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -80,7 +82,9 @@ POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='azure|terraform|helm|pulumi'
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  kubectl  
+  kubectl
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -138,18 +142,22 @@ alias refd_test='DEV=sky ENV=remote npm test'
 alias refd_fetch_secrets='export OAUTH_CLIENT_SECRET=`npm run get-secret-oauth --silent`; export STORAGE_ACCOUNT_CONNECTION_STRING=`npm run get-secret-storage-connection-string --silent`;'
 alias refd_debug='DEV=sky ENV=remote npm start --inspect-brk'
 
-alias path_run_micro='npx nx serve reference-data'
+alias path_run_micro='nvm use 18.13.0 && npm run start-local-webcomponents -- reference-data'
 alias path_run_full_1='npm run _prepare && node --max_old_space_size=5120 ./node_modules/.bin/nx serve --configuration=local-web-components'
 alias path_run_full_2='npx nx build reference-data --configuration=local-web-components --sourceMap=true --output-hashing=media && npx serve -l 4201 ./dist/apps/reference-data/'
 alias path_test_micro='npx nx test reference-data'
 
 alias tech_prepush='python -m yamllint . -c ./.yamllint.yml --no-warnings && poetry run black . && poetry run flake8 && python -m mypy'
 
+alias l='yazi'
+alias gg='lazygit'
+# alias dd="cd $(fd . '/Users/I529207/dev/' --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)"
 
 # Load Angular CLI autocompletion.
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/aritra.mondal/.rd/bin:$PATH"
+export PATH="/Users/I529207/.local/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 #
 #
@@ -161,3 +169,26 @@ export OAUTH_LTLS_CLIENT_SECRET=UsFH8PvMqQYgatmOMRNNhDD5EFAPzh4CbHTyxvJh
 
 
 
+# bun completions
+[ -s "/Users/I529207/.bun/_bun" ] && source "/Users/I529207/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+. "/Users/I529207/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
